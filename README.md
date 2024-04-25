@@ -1,0 +1,21 @@
+- カルテの頭書き作成システム　header of medical chart 2024/4 by ucymtr
+  - 環境　JupyterLab 4.0.11 macbook air M1, MacOS Ventura 13.6.5 オンプレORCA 5.2.0
+  - ORCA serverとclient(mac)がLANに接続されている
+  - credentials.pyというファイルを作り、そのなかでORCA severのip address,id,pwを定義する。
+  - ２つのdirectory ./work ./doneをあらかじめ作成
+  - 和暦packageのinstall
+     - 各モジュールのインポート
+     - その際にid,pw,ip addressをcredentials.pyというファイル内に定義
+     - プログラムの実行前に残りラベル数、ID numberを入力
+  - プログラムの内容
+    - ORCA API経由で患者のID,氏名、生年月日等を抽出
+    - nでラベルシールの残りのラベル数を入力する　cf. n=18
+    - id_list = [11523,45672] cd. []のなかに印刷したいID numberを入力する
+    - エクセルのファイル(./work/output-IDnumber.xlsx)として保存
+    - そのファイルを一つにまとめエクセルのファイル(日付時間秒.xlsx)として保存
+    - まとめたファイルを、ラベル屋さんのテンプレート(template-mrh.alym)に差し込みデータとして流し込み
+    - ラベルシール(A-one,１８面,#31285)にまとめて印刷する
+  - ラベル屋さん10において
+    - ファイルを開く(template-mrh.slymファイルを読み込む）
+    - 印刷、次への下の読み込みでデータファイル(日付時間秒.xlsx, ex.2024-04-01-114546.xlsx)を読み込む
+    - 次へ/印刷へ/印刷する
